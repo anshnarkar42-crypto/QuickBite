@@ -36,18 +36,17 @@ export function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
   }
 
   return (
-    <Card className="flex flex-col h-full overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-border/30 hover:border-primary/50 bg-card/80 backdrop-blur-sm">
+    <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-shadow duration-200 border-border/30">
       {item.image_url ? (
-        <div className="relative w-full h-56 bg-gradient-to-br from-primary/20 to-secondary/20 overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10"></div>
+        <div className="relative w-full h-56 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden group">
           <Image
             src={item.image_url || "/placeholder.svg"}
             alt={item.name}
             fill
-            className="object-cover group-hover:scale-110 transition-transform duration-500"
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
           {!item.is_available && (
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center backdrop-blur-sm">
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
               <span className="text-white font-bold text-lg">Sold Out</span>
             </div>
           )}
@@ -77,7 +76,7 @@ export function MenuItemCard({ item, onAddToCart }: MenuItemCardProps) {
           <p className="text-3xl font-black bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">{item.price.toFixed(0)}</p>
         </div>
       </CardContent>
-      <CardFooter className="flex gap-2 pt-4 border-t border-border/30 bg-muted/20">
+      <CardFooter className="flex gap-2 pt-4 border-t border-border/30">
         <div className="flex items-center gap-2 flex-1 bg-background rounded-lg p-1.5 border border-border/50">
           <Button
             variant="ghost"

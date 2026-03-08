@@ -205,31 +205,31 @@ export default function DashboardPage() {
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-12">
-          <div className="group bg-gradient-to-br from-primary via-purple-500 to-purple-600 rounded-2xl p-6 flex items-start gap-4 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">
-              <TrendingUp className="w-7 h-7 text-white" />
+          <div className="bg-gradient-to-br from-primary to-purple-600 rounded-2xl p-6 flex items-start gap-4 text-white shadow-lg hover:shadow-lg transition-shadow duration-200">
+            <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+              <TrendingUp className="w-6 h-6 text-white" />
             </div>
             <div>
               <p className="text-sm text-white/90 font-semibold">Available Items</p>
-              <p className="text-3xl font-black">{filteredItems.length}</p>
+              <p className="text-3xl font-bold">{filteredItems.length}</p>
             </div>
           </div>
-          <div className="group bg-gradient-to-br from-secondary via-orange-400 to-orange-500 rounded-2xl p-6 flex items-start gap-4 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">
-              <Zap className="w-7 h-7 text-white" />
+          <div className="bg-gradient-to-br from-secondary to-orange-500 rounded-2xl p-6 flex items-start gap-4 text-white shadow-lg hover:shadow-lg transition-shadow duration-200">
+            <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+              <Zap className="w-6 h-6 text-white" />
             </div>
             <div>
               <p className="text-sm text-white/90 font-semibold">Items in Cart</p>
-              <p className="text-3xl font-black">{cart.length}</p>
+              <p className="text-3xl font-bold">{cart.length}</p>
             </div>
           </div>
-          <div className="group bg-gradient-to-br from-accent via-yellow-400 to-yellow-500 rounded-2xl p-6 flex items-start gap-4 text-white shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer">
-            <div className="w-14 h-14 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0 group-hover:bg-white/30 transition-colors">
-              <Clock className="w-7 h-7 text-white" />
+          <div className="bg-gradient-to-br from-accent to-yellow-500 rounded-2xl p-6 flex items-start gap-4 text-white shadow-lg hover:shadow-lg transition-shadow duration-200">
+            <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
+              <Clock className="w-6 h-6 text-white" />
             </div>
             <div>
               <p className="text-sm text-white/90 font-semibold">Estimated Wait</p>
-              <p className="text-3xl font-black">~15 min</p>
+              <p className="text-3xl font-bold">~15 min</p>
             </div>
           </div>
         </div>
@@ -278,13 +278,12 @@ export default function DashboardPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 pb-20">
-            {filteredItems.map((item, idx) => (
-              <div key={item.id} style={{ animationDelay: `${idx * 50}ms` }} className="animate-in fade-in zoom-in duration-300">
-                <MenuItemCard
-                  item={item}
-                  onAddToCart={handleAddToCart}
-                />
-              </div>
+            {filteredItems.map((item) => (
+              <MenuItemCard
+                key={item.id}
+                item={item}
+                onAddToCart={handleAddToCart}
+              />
             ))}
           </div>
         )}
